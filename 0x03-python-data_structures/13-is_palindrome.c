@@ -10,8 +10,8 @@
 void reverse_listint(listint_t **head)
 {
 	listint_t *prev = NULL;
+	listint_t *next = NULL;
 	listint_t *current = *head;
-	listint_t next = NULL;
 
 	while (current)
 	{
@@ -30,7 +30,7 @@ void reverse_listint(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow = *head, *fast = *head, *temp = *head, dup = NULL;
+	listint_t *slow = *head, *fast = *head, *temp = *head, *dup = NULL;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
