@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" A class that defines a squre by size and raises exceptions
+"""
 class Square:
     """
     This is the Square class.
