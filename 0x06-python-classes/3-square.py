@@ -4,8 +4,7 @@
 
 
 class Square:
-    """
-    This is the Square class.
+    """ This is the Square class.
 
     Attributes:
     - __size (int): Private instance attribute repping the size of the square.
@@ -14,8 +13,7 @@ class Square:
     - __init__(self, size=0): Initializes a new instance of the Square class.
     """
     def __init__(self, size=0):
-        """
-        Initializes a new instance of the Square class with an optional size.
+        """Initializes a new instance of the Square class with an optional size.
 
         Args:
         - size (int, optional): The size of the square. Defaults to 0.
@@ -32,8 +30,7 @@ class Square:
             self.__size = size
 
     def area(self)
-        """
-        Computes and returns the current square area.
+        """Computes and returns the current square area.
 
         Returns:
         - int: The area of the square.
