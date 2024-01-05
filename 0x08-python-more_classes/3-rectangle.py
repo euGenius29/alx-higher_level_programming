@@ -97,3 +97,39 @@ class Rectangle:
         return (
             2 * (self.width + self.height) if self.width and self.height else 0
         )
+
+    def __str__(self) -> str:
+        """
+        Returns the string representation of a rectangle using '#' characters.
+
+        Returns:
+            str: The string representation of the rectangle.
+
+        Tests:
+            >>> rectangle_1 = Rectangle(4, 2)
+            >>> print(rectangle_1)
+            ####
+            ####
+            >>> rectangle_2 = Rectangle()
+            >>> print(rectangle_2)
+            <BLANKLINE>
+        """
+        return self.__generate_rectangle()
+
+    def __generate_rectangle(self) -> str:
+        """
+        Abstracts the generation of the representation of a rectangle
+        using '#' characters.
+
+        Returns:
+            str: The representation of the rectangle with '#' characters.
+        """
+        img = ""
+
+        if not self.height or not self.width:
+            return ""
+
+        for _ in range(self.height):
+            img += "#" * self.width + "\n"
+
+        return img[:-1]
