@@ -34,6 +34,7 @@ class Rectangle:
         return self.__width
 
 
+    @width.setter
     def width(self, value):
         """
         Setter method for width.
@@ -60,6 +61,7 @@ class Rectangle:
         return self.__height
     
 
+    @height.setter
     def height(self, value):
         """
         Setter method for height.
