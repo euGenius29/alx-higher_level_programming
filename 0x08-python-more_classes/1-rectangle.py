@@ -16,7 +16,7 @@ class Rectangle:
     - width (value: int): Setter method for width.
     - __init__(width: int = 0, height: int = 0): Constructor wth width and height.
     """
-    def __init__(self, width=0, height =0):
+    def __init__(self, width = 0, height = 0)-> None:
         """
         Initializes a rectangle instance.
 
@@ -29,13 +29,13 @@ class Rectangle:
 
 
     @property
-    def width(self):
+    def width(self)-> int:
         """Getter method for width"""
         return self.__width
 
 
     @width.setter
-    def width(self, value):
+    def width(self, value: int)-> None:
         """
         Setter method for width.
 
@@ -54,7 +54,7 @@ class Rectangle:
 
 
     @property
-    def height(self):
+    def height(self) -> int:
         """
         Getter method for width
         """
@@ -62,7 +62,7 @@ class Rectangle:
     
 
     @height.setter
-    def height(self, value):
+    def height(self, value: int) -> None:
         """
         Setter method for height.
 
