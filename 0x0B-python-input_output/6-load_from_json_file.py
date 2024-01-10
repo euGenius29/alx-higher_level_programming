@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Creates a python object from a json string"""
 def load_from_json_file(filename):
+
+
     """
     Creates a python object from a json file.
 

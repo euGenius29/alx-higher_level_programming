@@ -2,8 +2,10 @@
 """ Script writes a file and returns the number of characters written."""
 
 def write_file(filename="", text=""):
+
+
     """
-    A method to write text to a file and return the number of characters printed
+    A method to write text to a file and return the number of chars
 
     Args:
        filename: name of file to create/overwrite
@@ -11,9 +13,8 @@ def write_file(filename="", text=""):
 
     Returns:
        The number of characters appended
-            
-    """
 
+    """
     with open(filename, 'w') as file:
         file.write(text)
 
