@@ -23,7 +23,7 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-
+    @staticmethod
     def to_json_string(list_dictionaries) -> dict:
         """
         Converts a dictionary to json string.
@@ -37,12 +37,10 @@ class Base:
         if list_dictionaries is None or len(list_dictionaries)== 0:
             return []
 
-        if type(list_dictionaries) is not list:
+        elif type(list_dictionaries) is not list:
             raise TypeError("list_dictionaries is not a list of dictionaries")
-        for obj in list_dictionaries:
-            if type(obj) is not dict:
-                raise TypeError("non-dictionary item found.")
-        return (json.dumps(list_dictionaries))
+        else:
+            return(json.dumps(list_dictionaries))
 
     @classmethod
     def save_to_file(cls, list_objs) -> None:
