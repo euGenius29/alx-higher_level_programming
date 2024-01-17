@@ -43,7 +43,7 @@ class Base:
             return(json.dumps(list_dictionaries))
 
     @classmethod
-    def save_to_file(cls, list_objs) -> None:
+    def save_to_file(cls, list_objs :list) -> None:
         """
         Saves the json string to file
 
@@ -58,3 +58,18 @@ class Base:
             list_dictionaries = [obj.to_dictionary() for obj in list_objs]
             with open(f"{cls.__name__}.json", 'w') as file:
                 file.write(cls.to_json_string(list_dictionaries))
+    @staticmethod
+    def from_json_string(json_string :str) -> list:
+        """
+        Returns a python dictionary from a JSON string.
+
+        Args:
+        json_string (str): json string to convert to python dictionary.
+
+        Returns:
+        python dictionary object.
+        """
+        if json_string is None or len(json_string) == 0:
+            return[]
+        else:
+            return(json.loads(json_string))
