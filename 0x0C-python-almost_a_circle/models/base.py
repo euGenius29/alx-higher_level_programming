@@ -42,8 +42,7 @@ class Base:
         for obj in list_dictionaries:
             if type(obj) is not dict:
                 raise TypeError("non-dictionary item found.")
-        else:
-            return (json.dumps(list_dictionaries))
+        return (json.dumps(list_dictionaries))
 
     @classmethod
     def save_to_file(cls, list_objs) -> None:
