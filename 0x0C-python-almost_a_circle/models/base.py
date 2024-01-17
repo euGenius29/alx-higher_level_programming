@@ -34,8 +34,14 @@ class Base:
         Returns:
         json_string (str): json string representation of dict.
         """
-        if not list_dictionaries:
-            return '"[]"'
+        if list_dictionaries is None or len(list_dictionaries)== 0:
+            return []
+
+        if type(list_dictionaries) is not list:
+            raise TypeError("list_dictionaries is not a list of dictionaries")
+        for obj in list_dictionaries:
+            if type(obj) is not dict:
+                raise TypeError(non-dictionary item found.)
         else:
             return (json.dumps(list_dictionaries))
 
