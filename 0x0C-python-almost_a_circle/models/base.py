@@ -41,7 +41,7 @@ class Base:
             raise TypeError("list_dictionaries is not a list of dictionaries")
         for obj in list_dictionaries:
             if type(obj) is not dict:
-                raise TypeError(non-dictionary item found.)
+                raise TypeError("non-dictionary item found.")
         else:
             return (json.dumps(list_dictionaries))
 
