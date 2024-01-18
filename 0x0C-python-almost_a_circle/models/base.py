@@ -128,7 +128,7 @@ class Base:
         list_objs (list): list of dictionaries.
         """
         with open(f"{cls.__name__}.csv", "w") as csvfile:
-            
+
             if list_objs is None or len(list_objs) == 0:
                 csvfile.write("[]")
                 return
@@ -153,12 +153,12 @@ class Base:
         data = []
         try:
             if os.path.exists(filename):
-                with open(filename, 'r') as csvfile:
+                with open(filename, 'r', newline='') as csvfile:
                     reader = csv.DictReader(csvfile)
                     for row in reader:
-                        for key in ["width", "height", "size", "x", "y"]:
-                            if key in row:
-                                row[key] = int(row[key])
+                        #for key in ["width", "height", "size", "x", "y"]:
+                        for key in row:
+                            row[key] = int(row[key])
                         data.append(row)
                 return [cls.create(**obj) for obj in data]
         except FileNotFoundError:
