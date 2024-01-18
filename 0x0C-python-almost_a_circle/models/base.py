@@ -2,6 +2,7 @@
 """ A base class. """
 
 import json
+import csv
 
 
 class Base:
@@ -115,3 +116,42 @@ class Base:
                 return [cls.create(**obj) for obj in result]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        A method to save a list of dictionaries to csv file.
+
+        Args:
+        cls: class name
+        list_objs (list): list of dictionaries.
+        """
+        with open(f"{cls.__name__}.csv", "w", newline='') as csvfile:
+            if cls.__name__ == 'Rectangle':
+                fieldnames = ['id', 'width', 'height', 'x', 'y']
+            elif cls.__name__ == 'Square':
+                fieldnames = ['id', 'size', 'x', 'y']
+            else:
+                raise ValueError(f" Unsupported class: {cls.__name__}")
+
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+            writer.writeheader()
+            for obj in list_objs:
+                writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        filename = f"{cls.__name__}.csv"
+        data = []
+        try:
+            with open(filename, 'r') as csvfile:
+                reader = csv.DictReader(csvfile)
+                for row in reader:
+                    for key in ["width", "height", "size", "x", "y"]:
+                        if key in row:
+                            row[key] = int(row[key])
+                    data.append(row)
+            return [cls.create(**obj) for obj in data]
+        except FileNotFoundError:
+            return[]
