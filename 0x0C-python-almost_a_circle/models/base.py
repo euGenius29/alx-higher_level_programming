@@ -25,7 +25,7 @@ class Base:
             self.id = Base.__nb_objects
 
     @staticmethod
-    def to_json_string(list_dictionaries) -> dict:
+    def to_json_string(list_dictionaries) -> str:
         """
         Converts a dictionary to json string.
 
@@ -36,7 +36,7 @@ class Base:
         json_string (str): json string representation of dict.
         """
         if list_dictionaries is None or len(list_dictionaries) == 0:
-            return []
+            return '"[]"'
 
         elif type(list_dictionaries) is not list:
             raise TypeError("list_dictionaries is not a list of dictionaries")
