@@ -108,6 +108,11 @@ class Base:
         Returns:
         a list of instances
         """
-        with open(f"{cls.__name__}.json", "r") as file:
-            result = file.read()
-        return (cls.from_json_string(result))
+        try:
+            with open(f"{cls.__name__}.json", "r") as file:
+                result = file.read()
+                result = cls.from_json_string(result)
+                return [cls.create(**obj) for obj in result]
+        except FileNotFoundError:
+            return []
+
