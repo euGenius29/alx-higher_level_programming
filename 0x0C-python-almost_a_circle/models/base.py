@@ -156,7 +156,6 @@ class Base:
                 with open(filename, 'r', newline='') as csvfile:
                     reader = csv.DictReader(csvfile)
                     for row in reader:
-                        #for key in ["width", "height", "size", "x", "y"]:
                         for key in row:
                             row[key] = int(row[key])
                         data.append(row)
