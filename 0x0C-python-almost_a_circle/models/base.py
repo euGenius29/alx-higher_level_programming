@@ -3,6 +3,7 @@
 
 import json
 
+
 class Base:
     """
     A base class with private class attribute and constructor.
@@ -34,7 +35,7 @@ class Base:
         Returns:
         json_string (str): json string representation of dict.
         """
-        if list_dictionaries is None or len(list_dictionaries)== 0:
+        if list_dictionaries is None or len(list_dictionaries) == 0:
             return []
 
         elif type(list_dictionaries) is not list:
@@ -43,7 +44,7 @@ class Base:
             return(json.dumps(list_dictionaries))
 
     @classmethod
-    def save_to_file(cls, list_objs :list) -> None:
+    def save_to_file(cls, list_objs: list) -> None:
         """
         Saves the json string to file
 
@@ -58,8 +59,9 @@ class Base:
             list_dictionaries = [obj.to_dictionary() for obj in list_objs]
             with open(f"{cls.__name__}.json", 'w') as file:
                 file.write(cls.to_json_string(list_dictionaries))
+
     @staticmethod
-    def from_json_string(json_string :str) -> list:
+    def from_json_string(json_string: str) -> list:
         """
         Returns a python dictionary from a JSON string.
 
@@ -73,7 +75,6 @@ class Base:
             return[]
         else:
             return(json.loads(json_string))
-
 
     @classmethod
     def create(cls, **dictionary: dict):
@@ -95,3 +96,18 @@ class Base:
 
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        A method to return a list of instances
+
+        Agrs:
+        cls: class name
+
+        Returns:
+        a list of instances
+        """
+        with open(f"{cls.__name__}.json", "r") as file:
+            result = file.read()
+        return (cls.from_json_string(result))

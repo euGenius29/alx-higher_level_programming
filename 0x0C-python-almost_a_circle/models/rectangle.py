@@ -3,10 +3,11 @@
 
 from models.base import Base
 
+
 class Rectangle(Base):
     """ Models a rectangle object"""
 
-    def __init__(self, width, height, x=0, y=0, id=None)-> None:
+    def __init__(self, width, height, x=0, y=0, id=None) -> None:
         """
         Instantiation of rectangle object
 
@@ -34,7 +35,6 @@ class Rectangle(Base):
         """
         return(self.__width)
 
-
     @width.setter
     def width(self, value) -> int:
         """
@@ -48,7 +48,6 @@ class Rectangle(Base):
         if value <= 0:
             raise ValueError("width must be > 0")
         self.__width = value
-
 
     @property
     def height(self) -> int:
@@ -75,7 +74,7 @@ class Rectangle(Base):
         if isinstance(value, int) is False:
             raise TypeError("height must be an integer")
         if value <= 0:
-           raise ValueError("height must be > 0")
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -105,7 +104,6 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
-
 
     @property
     def y(self) -> int:
@@ -157,7 +155,6 @@ class Rectangle(Base):
                 print('#', end='')
             print()
 
-
     def __str__(self):
         """
         A method to customise __str__.
@@ -168,12 +165,11 @@ class Rectangle(Base):
         return (f"[{self.__class__.__name__}] ({self.id}) "
                 f"{self.x}/{self.y} - {self.width}/{self.height}")
 
-
-    def update(self, *args , **kwargs):
+    def update(self, *args, **kwargs):
         """
         Updates the rectangle attributes using positional arguments.
         """
-         
+
         if args:
             attributes = ["id", "width", "height", "x", "y"]
             for i, arg in enumerate(args):
@@ -182,11 +178,10 @@ class Rectangle(Base):
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
-
     def to_dictionary(self) -> dict:
         """
         Returns the dictionary representation of a rectangle.
-        
+
         Returns:
         (dict): dict rep of the rectangle.
         """
@@ -195,4 +190,3 @@ class Rectangle(Base):
                 "height": self.height,
                 "x": self.x,
                 "y": self.y}
-

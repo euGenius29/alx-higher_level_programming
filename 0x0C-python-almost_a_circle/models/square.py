@@ -19,7 +19,6 @@ class Square(Rectangle):
 
         super().__init__(size, size, x, y, id)
         self.size = self.width
-        
 
     @property
     def size(self) -> int:
@@ -58,11 +57,10 @@ class Square(Rectangle):
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
-
     def to_dictionary(self) -> dict:
         """
         Stores arguments of square to a dictionary
-        
+
         Returns:
         (dict): dictionary representation of square's args
         """
