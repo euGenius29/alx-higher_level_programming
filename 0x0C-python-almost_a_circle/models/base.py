@@ -39,7 +39,7 @@ class Base:
             return '"[]"'
 
         elif type(list_dictionaries) is not list:
-            raise TypeError("list_dictionaries is not a list of dictionaries")
+            raise TypeError("not a list of dictionaries")
         else:
             return(json.dumps(list_dictionaries))
 
