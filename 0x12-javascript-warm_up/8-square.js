@@ -3,7 +3,7 @@
 let i;
 let j;
 
-if (typeof (Number(process.argv[2])) !== 'number') {
+if (isNaN(Number(process.argv[2]))) {
   console.log('Missing size');
 } else {
   for (i = 0; i < Number(process.argv[2]); i++) {
