@@ -9,7 +9,7 @@ if (typeof (Number(process.argv[2])) !== 'number') {
   for (i = 0; i < Number(process.argv[2]); i++) {
     let line = '';
     for (j = 0; j < Number(process.argv[2]); j++) {
-      line += 'X ';
+      line += 'X';
     }
     console.log(line);
   }
