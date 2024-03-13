@@ -6,5 +6,5 @@ if (isNaN(process.argv[2]))
 }
 else
 {
-	console.log(process.argv[2]);
+	console.log(Math.floor(Number(process.argv[2])));
 }
